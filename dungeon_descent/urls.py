@@ -16,10 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from users.views import StatesView
+from rest_framework.routers import DefaultRouter
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     # Todo:
     # Contains more URLs than we need. Only add ones that we need.
-    path('dj-rest-auth/', include('dj_rest_auth.urls')),
+    path('', include('dj_rest_auth.urls')),
+    path('states', StatesView.as_view()),
 ]
